@@ -175,8 +175,9 @@ print(names(max_interval))</code></pre>
 <pre class="r"><code>n_na &lt;- sum(is.na(activity$steps));print(n_na)</code></pre>
 <pre><code>## [1] 2304</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.</li>
-<li>Create a new dataset that is equal to the original dataset but with the missing data filled in. I choose to use the mean for that 5-minute interval.</li>
+<li>Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated.<br />
+I use the mean for that 5-minute interval.</li>
+<li>Create a new dataset that is equal to the original dataset but with the missing data filled in.</li>
 </ol>
 <pre class="r"><code>activity.no_na &lt;- activity
 activity.no_na &lt;- as.data.frame(activity.no_na)

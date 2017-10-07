@@ -31,7 +31,7 @@ steps_date_sum <- tapply(activity$steps, activity$date, sum)
 hist(steps_date_sum, xlab = "steps per day", main =" Histogram of steps per day", breaks = 10)
 ```
 
-![plot of chunk unnamed-chunk-41](figure/unnamed-chunk-41-1.png)
+![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
 
 2. Calculate and report the mean and median total number of steps taken per day
 
@@ -63,7 +63,7 @@ par(mar=c(5,4,0.5,1))
 plot(steps_interval_mean, type="l", xlab = "interval", ylab = "steps")
 ```
 
-![plot of chunk unnamed-chunk-43](figure/unnamed-chunk-43-1.png)
+![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
 
 2. Which 5-minute interval, on average across all the days in the dataset, contains the maximum number of steps?
 
@@ -97,9 +97,9 @@ n_na <- sum(is.na(activity$steps));print(n_na)
 ## [1] 2304
 ```
 
-2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated. For example, you could use the mean/median for that day, or the mean for that 5-minute interval, etc.
+2. Devise a strategy for filling in all of the missing values in the dataset. The strategy does not need to be sophisticated.  
+I use the mean for that 5-minute interval.
 3. Create a new dataset that is equal to the original dataset but with the missing data filled in.
-I choose to use the mean for that 5-minute interval.
 
 ```r
 activity.no_na <- activity
@@ -120,7 +120,7 @@ steps_date_sum.no_na <- tapply(activity.no_na$steps, activity.no_na$date, sum)
 hist(steps_date_sum.no_na, xlab = "steps per day", main =" Histogram of steps per day", breaks = 10)
 ```
 
-![plot of chunk unnamed-chunk-47](figure/unnamed-chunk-47-1.png)
+![plot of chunk unnamed-chunk-8](figure/unnamed-chunk-8-1.png)
 
 ```r
 steps_mean.no_na <- mean(steps_date_sum.no_na);print(steps_mean.no_na)
@@ -186,4 +186,4 @@ activity_day <- aggregate(steps~interval+day, activity.no_na, sum)
 xyplot(steps~interval|day, data = activity_day, layout = c(1,2), type="l")
 ```
 
-![plot of chunk unnamed-chunk-50](figure/unnamed-chunk-50-1.png)
+![plot of chunk unnamed-chunk-11](figure/unnamed-chunk-11-1.png)
