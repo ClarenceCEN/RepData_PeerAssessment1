@@ -7,7 +7,7 @@ output:
 
 
 ## Loading and preprocessing the data
-```{r}
+```{r echo=TRUE}
 activity <- read.csv("activity.csv")
 Sys.setlocale("LC_TIME","English")
 locale_original <- Sys.getlocale( category = "LC_TIME" )
@@ -15,7 +15,7 @@ locale_original <- Sys.getlocale( category = "LC_TIME" )
 
 
 ## What is mean total number of steps taken per day?
-```{r}
+```{r echo=TRUE}
 steps_date_sum <- tapply(activity$steps, activity$date, sum)
 steps_date_sum <- as.data.frame(steps_date_sum)
 steps_date_sum$date <- as.Date(rownames(steps_date_sum))
@@ -33,7 +33,7 @@ print(mean_c);print(median_c)
 
 
 ## What is the average daily activity pattern?
-```{r}
+```{r echo=TRUE}
 steps_interval_mean <- tapply(activity$steps, activity$interval, mean, na.rm = TRUE)
 steps_interval_mean <- as.data.frame(steps_interval_mean)
 steps_interval_mean$interval <- as.numeric(rownames(steps_interval_mean))
@@ -50,7 +50,7 @@ print("The interval of 835 - 840 contains the maximum number of steps.")
 
 
 ## Imputing missing values
-```{r}
+```{r echo=TRUE}
 n_na <- sum(is.na(activity$steps));print(n_na)
 activity.no_na <- activity
 for(i in 1:nrow(activity)){
@@ -79,7 +79,7 @@ print("The interval of 835 - 840 contains the maximum number of steps.")
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
-```{r}
+```{r echo=TRUE}
 days <- weekdays(as.Date(activity$date))
 activity$day <- "weekdays"
 weekends_ind <- which((days == "Saturday")|(days == "Sunday"))

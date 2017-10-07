@@ -1,9 +1,4 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+# Reproducible Research: Peer Assessment 1
 
 
 ## Loading and preprocessing the data
@@ -32,7 +27,7 @@ steps_date_sum$steps_date_sum <- as.numeric(steps_date_sum$steps_date_sum)
 hist(steps_date_sum$steps_date_sum, xlab = "steps per day", main =" Histogram of steps per day", breaks = 10)
 ```
 
-![plot of chunk unnamed-chunk-2](figure/unnamed-chunk-2-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-2-1.png)<!-- -->
 
 ```r
 steps_mean <- mean(steps_date_sum$steps_date_sum, na.rm = TRUE)
@@ -65,7 +60,7 @@ plot(steps_interval_mean$interval, steps_interval_mean$steps_interval_mean, type
      xlab = "interval", ylab = "steps")
 ```
 
-![plot of chunk unnamed-chunk-3](figure/unnamed-chunk-3-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-3-1.png)<!-- -->
 
 ```r
 max_interval_mean <- max(steps_interval_mean$steps_interval_mean)
@@ -114,7 +109,7 @@ steps_date_sum.no_na$steps_date_sum.no_na <- as.numeric(steps_date_sum.no_na$ste
 hist(steps_date_sum.no_na$steps_date_sum.no_na, xlab = "steps per day", main =" Histogram of steps per day", breaks = 10)
 ```
 
-![plot of chunk unnamed-chunk-4](figure/unnamed-chunk-4-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-4-1.png)<!-- -->
 
 ```r
 steps_interval_mean.no_na <- tapply(activity.no_na$steps, activity.no_na$interval, mean)
@@ -168,4 +163,4 @@ steps_interval_mean.day <- transform(steps_interval_mean.day, day = factor(day))
 xyplot(steps~interval|day, data = steps_interval_mean.day, layout = c(1,2), type="l")
 ```
 
-![plot of chunk unnamed-chunk-5](figure/unnamed-chunk-5-1.png)
+![](PA1_template_files/figure-html/unnamed-chunk-5-1.png)<!-- -->
